@@ -1,6 +1,7 @@
 package com.gltech.demo.herd;
 
 import java.util.List;
+import java.util.Objects;
 
 import com.gltech.demo.cow.Cow;
 
@@ -56,5 +57,20 @@ public class Herd {
 
     public void setHerdHistories(List<HerdHistory> herdHistories) {
         this.herdHistories = herdHistories;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Herd herd = (Herd) o;
+        return id == herd.id;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }

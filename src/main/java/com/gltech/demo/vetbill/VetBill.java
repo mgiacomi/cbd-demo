@@ -2,6 +2,7 @@ package com.gltech.demo.vetbill;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 
 import com.gltech.demo.cow.Cow;
 
@@ -71,5 +72,20 @@ public class VetBill {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VetBill vetBill = (VetBill) o;
+        return id == vetBill.id;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }

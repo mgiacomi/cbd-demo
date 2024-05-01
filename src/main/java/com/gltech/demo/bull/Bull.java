@@ -1,6 +1,7 @@
 package com.gltech.demo.bull;
 
 import java.util.List;
+import java.util.Objects;
 
 import com.gltech.demo.cow.Cow;
 
@@ -67,5 +68,20 @@ public class Bull {
 
     public void setCalves(List<Cow> calves) {
         this.calves = calves;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bull bull = (Bull) o;
+        return id == bull.id;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }

@@ -2,6 +2,7 @@ package com.gltech.demo.cow;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 import com.gltech.demo.bull.Bull;
 import com.gltech.demo.herd.Herd;
@@ -157,5 +158,20 @@ public class Cow {
 
     public void setMilkings(List<Milking> milkings) {
         this.milkings = milkings;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cow cow = (Cow) o;
+        return id == cow.id;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }
